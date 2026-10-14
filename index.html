@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -108,12 +109,31 @@ body.hasbadge{--safe:calc(env(safe-area-inset-bottom,0px) + 62px)}
 body.mode-D .om{display:none!important}body.mode-O .dm{display:none!important}
 .more{margin-top:12px}.more>summary{list-style:none;display:flex;align-items:center;justify-content:center;min-height:44px}.more>summary::-webkit-details-marker{display:none}
 .top h1,.wm{text-transform:none!important}.wm .now{color:var(--b)}
+.modebar{position:sticky;top:0;z-index:20;background:#fff;padding:6px 8px 0;box-shadow:0 2px 4px #0002}
+.modebar .modesw{margin:0;border:3px solid #0b2e19;border-radius:14px;overflow:hidden;display:flex}
+.modebar .modesw button{flex:1;min-height:58px;border:0;background:#fff;color:#0b2e19;font-family:var(--hd);font-size:22px;letter-spacing:.06em;line-height:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;touch-action:manipulation}
+.modebar .modesw button small{font-family:-apple-system,Arial,sans-serif;font-size:11px;letter-spacing:.04em;text-transform:uppercase;font-weight:700;opacity:.75}
+.modebar .modesw button+button{border-left:3px solid #0b2e19}
+.modebar .modesw button.on[data-mode=O]{background:var(--b);color:#fff}
+.modebar .modesw button.on[data-mode=D]{background:#8b1e2d;color:#fff}
+.modebar .modesw button:not(.on):after{content:'tap to switch';font:600 10px -apple-system,Arial,sans-serif;opacity:.6;text-transform:uppercase}
+.modeband{margin:6px -8px 0;padding:6px 10px;font-weight:800;font-size:14px;text-align:center;letter-spacing:.03em;color:#fff;background:var(--b)}
+body.mode-D .modeband{background:#8b1e2d}body.mode-D .sitcard{border-color:#8b1e2d}
+.build{position:absolute;right:8px;top:4px;font-size:10px;color:#69746f}
+#errbar{position:fixed;left:8px;right:8px;top:8px;z-index:99999;background:#b00020;color:#fff;border-radius:10px;padding:8px 8px 8px 12px;display:flex;gap:6px;align-items:center;font-size:14px;box-shadow:0 4px 12px #0006}
+#errbar span{flex:1}#errbar button{min-height:44px;min-width:44px;border:1px solid #fff;background:transparent;color:#fff;border-radius:8px;font-weight:700}
+#updbar{position:fixed;left:8px;right:8px;top:8px;z-index:99998;background:#0b2e19;color:#fff;border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:8px}
+#updbar button{min-height:44px;background:var(--gold);border:0;border-radius:8px;font-weight:800;padding:0 14px}
 .modetag{display:inline-block;background:var(--gold);color:#111;font-weight:800;font-size:11px;padding:2px 6px;border-radius:4px;letter-spacing:.04em}
 @media print{body,.card{background:#fff!important;color:#000!important}th{background:#e7f1ea!important}.card{border:0}.rtitle{font-size:22px}}
 </style></head><body>
 <div id="nojs" style="background:#c62828;color:#fff;padding:14px;font-size:17px;font-weight:700;text-align:center;line-height:1.35">⚠ The app isn't running. This looks like a preview (Files / Mail / Quick Look) where scripts are off.<br>Tap Share → <u>Open in Safari</u> (or Chrome), or host the file online, then “Add to Home Screen”.</div>
-<div class="top"><div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0f3d22"/><g stroke="#ffffff30" stroke-width="2"><line x1="0" y1="16" x2="64" y2="16"/><line x1="0" y1="32" x2="64" y2="32"/><line x1="0" y1="48" x2="64" y2="48"/></g><ellipse cx="32" cy="36" rx="20" ry="12" transform="rotate(-30 32 36)" fill="#8b4a22" stroke="#fff" stroke-width="1.5"/><g stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="25" y1="40" x2="39" y2="32"/><line x1="29" y1="35" x2="31" y2="39"/><line x1="32" y1="33" x2="34" y2="37"/><line x1="35" y1="31.5" x2="37" y2="35.5"/></g><g stroke="#ffc72c" stroke-width="3" stroke-linecap="round" fill="none"><path d="M8 8l8 8M16 8l-8 8"/><circle cx="52" cy="54" r="5"/><path d="M14 22 Q30 6 50 12"/><path d="M45 7l5 5-6 3"/></g></svg><div><h1>GamePlan<span>Now</span></h1><div class="tag">Break down their offense. Own Friday night.</div></div></div><div class="modesw" role="tablist"><button type="button" data-mode="O">Scout their<br><b>OFFENSE</b></button><button type="button" data-mode="D">Scout their<br><b>DEFENSE</b></button></div></div>
+<div class="top"><div class="build" id="buildTag"></div><div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0f3d22"/><g stroke="#ffffff30" stroke-width="2"><line x1="0" y1="16" x2="64" y2="16"/><line x1="0" y1="32" x2="64" y2="32"/><line x1="0" y1="48" x2="64" y2="48"/></g><ellipse cx="32" cy="36" rx="20" ry="12" transform="rotate(-30 32 36)" fill="#8b4a22" stroke="#fff" stroke-width="1.5"/><g stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="25" y1="40" x2="39" y2="32"/><line x1="29" y1="35" x2="31" y2="39"/><line x1="32" y1="33" x2="34" y2="37"/><line x1="35" y1="31.5" x2="37" y2="35.5"/></g><g stroke="#ffc72c" stroke-width="3" stroke-linecap="round" fill="none"><path d="M8 8l8 8M16 8l-8 8"/><circle cx="52" cy="54" r="5"/><path d="M14 22 Q30 6 50 12"/><path d="M45 7l5 5-6 3"/></g></svg><div><h1>GamePlan<span>Now</span></h1><div class="tag">Break down their offense. Own Friday night.</div></div></div></div>
 
+<div class="modebar" id="modebar"><div class="modesw" role="tablist" aria-label="Choose what to scout">
+ <button type="button" data-mode="O" role="tab"><small>Scout their</small>OFFENSE</button>
+ <button type="button" data-mode="D" role="tab"><small>Scout their</small>DEFENSE</button></div>
+ <div class="modeband" id="modeband"></div></div>
 <section id="tag" class="on">
 <details class="card game" id="gameCard"><summary><div><div class="gname" id="gOpp">Set opponent</div><div class="gsub" id="gSub">Tap to set game</div></div><span class="btn">Game ✎</span></summary>
  <label>Opponent (team being scouted)</label><input id="f_opp" list="dl_opp" placeholder="St. Joseph's Montville">
@@ -222,6 +242,7 @@ body.mode-D .om{display:none!important}body.mode-O .dm{display:none!important}
 <p class="small">Data is stored only on this device/browser (localStorage). Back up to JSON regularly — iPhone Safari can clear site data. Import CSV appends plays (old “game” column names still accepted).</p>
 <h2>Default assumptions (editable)</h2><p class="small">Set up for NJ high school (NFHS) film: 12-minute quarters (tapping a quarter fills 12:00 if the clock is blank), L/M/R hash, quick buttons for touchback at Own 20, try from Opp 3 (2-pt Try / PAT Kick tags), and OT from Opp 10 (picking OT sets 1st &amp; Goal at Opp 10). “Running Clock” is just a tag. These are only shortcuts; overwrite anything to match what happened on film.</p>
 <h2>Modes</h2><p class="small"><b>Scout their OFFENSE</b> (defensive staff) and <b>Scout their DEFENSE</b> (offensive staff) keep separate play lists, chips, filters and reports. Plays saved before modes existed count as OFFENSE. CSV has a <code>mode</code> column (O/D); older CSVs import as offense.</p>
+<p class="small">App build: <b id="buildData"></b></p>
 <h2>Add to Home Screen</h2><p class="small">iPhone: open in Safari → Share → “Add to Home Screen”. It then opens full-screen like an app and works offline once loaded.</p>
 <h2>How to use</h2><ol class="small"><li>Tap the Game card once to set Opponent, Game Title, Date.</li><li>Tap chips for personnel/formation/play (most-used first; “+” to type new).</li><li>Set yards, tap SAVE PLAY. Down, distance, yard line and play # auto-advance. “Undo” appears for a few seconds.</li><li>Plays tab: tap a play to edit, ✕ to delete.</li></ol>
 </div></section>
@@ -234,14 +255,21 @@ body.mode-D .om{display:none!important}body.mode-O .dm{display:none!important}
 <datalist id="dl_opp"></datalist><datalist id="dl_game"></datalist>
 <script>
 "use strict";
+const BUILD='v11 · 2026-10-14';
+function nn(v){return v==null?'':v}
+function showErr(msg){try{let e=document.getElementById('errbar');if(!e){e=document.createElement('div');e.id='errbar';document.body.appendChild(e)}
+  e.innerHTML='<span>⚠ '+String(msg).replace(/[<>&]/g,'')+'</span><button type="button" onclick="location.reload()">Reload</button><button type="button" onclick="this.parentNode.remove()">✕</button>';}catch(_){}}
+window.addEventListener('error',ev=>showErr('Something went wrong: '+(ev.message||'error')+' ('+BUILD+')'));
+window.addEventListener('unhandledrejection',ev=>showErr('Something went wrong: '+((ev.reason&&ev.reason.message)||ev.reason)+' ('+BUILD+')'));
+function lsSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){showErr('Could not save on this device (storage full or Private Browsing). Export a backup from the Data tab.');return false}}
 try{document.getElementById("nojs").remove()}catch(e){}
 const KEY='filmBreakdown.plays.v1',GKEY='filmBreakdown.game.v1',MKEY='filmBreakdown.mode.v1';
-let mode=localStorage.getItem(MKEY)==='D'?'D':'O';const pm=p=>p.mode==='D'?'D':'O';const mp=()=>plays.filter(p=>pm(p)===mode);
+let mode='O';try{mode=localStorage.getItem(MKEY)==='D'?'D':'O'}catch(e){}const pm=p=>p.mode==='D'?'D':'O';const mp=()=>plays.filter(p=>pm(p)===mode);
 const FIELDS=['mz','stk','madj','mode','week','front','dpers','shell','cov','blitz','btype','bside','stunt','fstr','dlnote','ovh','ctech','rot','opp','game','date','no','qtr','down','dist','yl','score','margin','clock','tags','tempo','qb','rb','hash','pers','form','str','motion','type','play','dir','yds','result','notes','example' ];
 let plays=[];try{plays=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){plays=[]}
-const save=()=>localStorage.setItem(KEY,JSON.stringify(plays));
+const save=()=>lsSet(KEY,JSON.stringify(plays));
 const $=id=>document.getElementById(id);
-const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const esc=s=>nn(String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let seg={qtr:'1',down:'1',hash:'M',str:'R',type:'Run',result:'Gain',side:'Own',score:'',tempo:'',qb:'',rb:'',shell:'',rot:'',blitz:'',bside:'',ctech:'',mz:'',stk:'',madj:''};
 const OPTSEG=['score','tempo','qb','rb','shell','rot','blitz','bside','ctech','mz','stk','madj'];const SEGK=['qtr','down','hash','str','type','result',...OPTSEG];
 const SITTAGS=['Normal','2-Minute','4-Min/Clock-kill','Backed Up','Sudden Change','After Big Play','Goal Line','2-pt Try','PAT Kick','Running Clock','Opening Drive/Scripted'];
@@ -334,15 +362,15 @@ function updSit(){const yl=getYL();$('zone_out').textContent=yl?'Field zone: '+z
   $('sit').innerHTML=`${ddText(seg.down,$('f_dist').value,yl)} at ${ylText(yl)}<small>Play #${$('f_no').value||'?'} · Q${seg.qtr}${$('f_clock').value?' '+esc($('f_clock').value):''} · ${seg.hash} hash${seg.score?' · '+seg.score+($('f_margin').value&&seg.score!=='Tied'?' '+$('f_margin').value:''):''}${editId?' · EDITING':''} · tap to edit</small>`}
 ['f_dist','f_no','f_ylnum','f_margin','f_clock'].forEach(id=>$(id).addEventListener('input',updSit));
 function updGame(){const o=$('f_opp').value.trim(),g=$('f_game').value.trim(),d=$('f_date').value,w=$('f_week').value;$('gOpp').textContent=o?'Opponent: '+o:'⚠ Tap to set opponent & game';$('gSub').textContent=(w?'Wk '+w+' · ':'')+(g||'No game title')+(d?' · '+d:'');
-  localStorage.setItem(GKEY,JSON.stringify({opp:o,game:g,date:d,week:w}))}
+  lsSet(GKEY,JSON.stringify({opp:o,game:g,date:d,week:w}))}
 ['f_opp','f_game','f_date','f_week'].forEach(id=>$(id).addEventListener('input',updGame));
 $('gameDone').onclick=()=>{$('gameCard').open=false;updGame();renderChips()};
 function readForm(){const p={mode,week:$('f_week').value,margin:$('f_margin').value,clock:fmtClock($('f_clock').value),tags:[...tags].join('|'),opp:$('f_opp').value.trim(),game:$('f_game').value.trim(),date:$('f_date').value,no:$('f_no').value,dist:$('f_dist').value,yl:getYL(),yds:$('f_yds').value,notes:$('f_notes').value.trim()};
   SEGK.forEach(k=>p[k]=seg[k]);Object.keys(chip).forEach(k=>p[k]=chip[k]);return p}
 function fillForm(p){if(p.opp!=null)$('f_opp').value=p.opp;if(p.game!=null)$('f_game').value=p.game;if(p.date!=null)$('f_date').value=p.date;
-  ['no','dist','yds','notes'].forEach(k=>$('f_'+k).value=p[k]??'');setYL(p.yl);
+  ['no','dist','yds','notes'].forEach(k=>$('f_'+k).value=nn(p[k]));setYL(p.yl);
   ['qtr','down','hash','str','type','result'].forEach(k=>{if(p[k]!=null&&p[k]!=='')seg[k]=String(p[k])});
-  OPTSEG.forEach(k=>seg[k]=p[k]?String(p[k]):'');if(p.week!=null)$('f_week').value=p.week;$('f_margin').value=p.margin??'';$('f_clock').value=p.clock??'';tags=new Set((p.tags||'').split('|').filter(Boolean));renderTags();
+  OPTSEG.forEach(k=>seg[k]=p[k]?String(p[k]):'');if(p.week!=null)$('f_week').value=p.week;$('f_margin').value=nn(p.margin);$('f_clock').value=nn(p.clock);tags=new Set((p.tags||'').split('|').filter(Boolean));renderTags();
   Object.keys(chip).forEach(k=>chip[k]=p[k]||'');paintSeg();renderChips();updGame();renderTags()}
 function advance(p){const y=+p.yds||0,a=ylToAbs(p.yl);let n={opp:p.opp,game:p.game,date:p.date,week:p.week,no:(+p.no||0)+1,qtr:p.qtr,hash:'M',str:p.str,type:p.type,result:'Gain',pers:p.pers,form:'',motion:'',score:p.score,margin:p.margin,tempo:p.tempo,qb:p.qb,rb:'',clock:''};
   {const keep=(p.tags||'').split('|').filter(t=>['2-Minute','4-Min/Clock-kill','Opening Drive/Scripted'].includes(t));const big=(p.type==='Run'&&+p.yds>=15)||(p.type!=='Run'&&+p.yds>=20);if(big)keep.push('After Big Play');n.tags=keep.join('|')}
@@ -363,7 +391,7 @@ function undo(){if(!undoInfo)return;if(undoInfo.kind==='add')plays=plays.filter(
   save();fillForm(undoInfo.form);undoInfo=null;$('toast').classList.remove('on');refreshAll()}
 $('undoBtn').onclick=undo;$('saveBtn').onclick=savePlay;
 function setEdit(p){editId=p?p.id:null;$('editbar').classList.toggle('on',!!p);$('editing').textContent=p?'Editing play #'+p.no:'';$('saveBtn').textContent=p?'UPDATE PLAY':'SAVE PLAY';updSit()}
-function clearForm(){const last=mp().filter(p=>!p.example).at(-1);setEdit(null);if(last)fillForm(advance(last));else fillForm({no:'1',down:'1',dist:'10',qtr:'1',hash:'M',type:'Run',result:'Gain',yl:''})}
+function clearForm(){const last=mp().filter(p=>!p.example).slice(-1)[0];setEdit(null);if(last)fillForm(advance(last));else fillForm({no:'1',down:'1',dist:'10',qtr:'1',hash:'M',type:'Run',result:'Gain',yl:''})}
 $('cancelEdit').onclick=clearForm;
 document.addEventListener('keydown',e=>{if(!$('tag').classList.contains('on'))return;
   if(e.key==='Enter'&&!e.isComposing&&!(e.target.id||'').match(/f_(opp|game|date|week)|add_/)){e.preventDefault();savePlay();return}
@@ -561,11 +589,11 @@ $('rpoRun').onchange=renderReports;
 
 // ---------- data ----------
 const CSVH=['opponent','game_title','game_date','play_no','quarter','clock','down','distance','yard_line','field_zone','score_situation','score_margin','tempo','situation_tags','qb_alignment','backfield','hash','personnel','formation','strength','motion','play_type','play_name','dir_target','yards','result','efficient','notes','example','mode','week','front','def_personnel','shell','coverage','blitz','blitz_type','blitz_side','stunt','front_strength','dl_notes','overhang','corner_tech','rotation','man_zone','line_movement','motion_adjust'];
-function csvCell(v){v=String(v??'');return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
+function csvCell(v){v=String(nn(v));return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
 function toCSV(){return [CSVH.join(','),...plays.map(p=>[p.opp,p.game,p.date,p.no,p.qtr,p.clock,p.down,p.dist,p.yl,zone(p.yl),p.score,p.margin,p.tempo,p.tags,p.qb,p.rb,p.hash,p.pers,p.form,p.str,p.motion,p.type,p.play,p.dir,p.yds,p.result,eff(p)?'Y':'N',p.notes,p.example?'Y':'',pm(p),p.week,p.front,p.dpers,p.shell,p.cov,p.blitz,p.btype,p.bside,p.stunt,p.fstr,p.dlnote,p.ovh,p.ctech,p.rot,p.mz,p.stk,p.madj].map(csvCell).join(','))].join('\n')}
 function parseCSV(t){const rows=[];let r=[],c='',q=false;for(let i=0;i<t.length;i++){const ch=t[i];if(q){if(ch==='"'){if(t[i+1]==='"'){c+='"';i++}else q=false}else c+=ch}else if(ch==='"')q=true;else if(ch===','){r.push(c);c=''}else if(ch==='\n'||ch==='\r'){if(ch==='\r'&&t[i+1]==='\n')i++;r.push(c);rows.push(r);r=[];c=''}else c+=ch}if(c||r.length){r.push(c);rows.push(r)}return rows.filter(r=>r.some(x=>x!==''))}
 function fromCSV(t){const rows=parseCSV(t);const h=rows.shift().map(x=>x.trim().toLowerCase());const map={opponent:'opp',opp:'opp',game:'game',game_title:'game',game_date:'date',date:'date',clock:'clock',score_situation:'score',score_margin:'margin',tempo:'tempo',situation_tags:'tags',qb_alignment:'qb',backfield:'rb',play_no:'no',quarter:'qtr',down:'down',distance:'dist',yard_line:'yl',hash:'hash',personnel:'pers',formation:'form',strength:'str',motion:'motion',play_type:'type',play_name:'play',dir_target:'dir',yards:'yds',result:'result',notes:'notes',example:'example',mode:'mode',week:'week',front:'front',def_personnel:'dpers',shell:'shell',coverage:'cov',blitz:'blitz',blitz_type:'btype',blitz_side:'bside',stunt:'stunt',front_strength:'fstr',dl_notes:'dlnote',overhang:'ovh',corner_tech:'ctech',rotation:'rot',man_zone:'mz',line_movement:'stk',motion_adjust:'madj'};
-  let n=0;rows.forEach(r=>{const p={id:Date.now().toString(36)+Math.random().toString(36).slice(2,7)};h.forEach((k,i)=>{if(map[k])p[map[k]]=r[i]??''});p.example=p.example==='Y';p.mode=String(p.mode||'').toUpperCase().startsWith('D')?'D':'O';FIELDS.forEach(k=>{if(p[k]==null)p[k]=''});plays.push(p);n++});save();return n}
+  let n=0;rows.forEach(r=>{const p={id:Date.now().toString(36)+Math.random().toString(36).slice(2,7)};h.forEach((k,i)=>{if(map[k])p[map[k]]=nn(r[i])});p.example=p.example==='Y';p.mode=String(p.mode||'').toUpperCase().startsWith('D')?'D':'O';FIELDS.forEach(k=>{if(p[k]==null)p[k]=''});plays.push(p);n++});save();return n}
 function dl(name,text,type){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;document.body.appendChild(a);a.click();a.remove()}
 const readFile=(inp,cb)=>inp.onchange=()=>{const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{cb(r.result)}catch(e){$('dmsg').textContent='Import failed: '+e.message}inp.value=''};r.readAsText(f)};
 $('csvExp').onclick=()=>dl('film-breakdown-'+new Date().toISOString().slice(0,10)+'.csv',toCSV(),'text/csv');
@@ -625,11 +653,14 @@ function show(t){document.querySelectorAll('.tabbar button').forEach(b=>b.classL
   $('savebar').style.display=t==='tag'?'':'none';if(t!=='tag')$('toast').classList.remove('on');if(t==='rep')renderReports();if(t==='list')renderList()}
 document.querySelectorAll('.tabbar button').forEach(b=>b.onclick=()=>show(b.dataset.t));
 function refreshAll(){refreshDL();renderRecent();renderChips();if($('rep').classList.contains('on'))renderReports();if($('list').classList.contains('on'))renderList()}
-function setMode(m){mode=m==='D'?'D':'O';localStorage.setItem(MKEY,mode);document.body.classList.toggle('mode-D',mode==='D');document.body.classList.toggle('mode-O',mode==='O');
+function setMode(m){mode=m==='D'?'D':'O';lsSet(MKEY,mode);document.body.classList.toggle('mode-D',mode==='D');document.body.classList.toggle('mode-O',mode==='O');
   document.querySelectorAll('.modesw button').forEach(b=>b.classList.toggle('on',b.dataset.mode===mode));
   document.querySelector('.top .tag').textContent=mode==='D'?'Break down their defense. Own Friday night.':'Break down their offense. Own Friday night.';
+  $('modeband').textContent=mode==='D'?'🛡 DEFENSE MODE — charting THEIR DEFENSE (front, safeties, man/zone, blitz)':'🏈 OFFENSE MODE — charting THEIR OFFENSE (formations, plays, run/pass)';
   Object.assign(F,{opp:'',games:[],qtr:'',hash:'',pers:''});listOpp='';addOpen=null;$('toast').classList.remove('on');clearForm();refreshAll()}
-document.querySelectorAll('.modesw button').forEach(b=>b.onclick=()=>{if(b.dataset.mode!==mode)setMode(b.dataset.mode)});
+document.querySelectorAll('.modesw button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.mode!==mode){setMode(b.dataset.mode);if(window.scrollTo)window.scrollTo(0,0);toast(mode==='D'?'Now scouting their DEFENSE':'Now scouting their OFFENSE');$('undoBtn').style.display='none';setTimeout(()=>{$('undoBtn').style.display=''},6000)}}));
+$('buildTag').textContent='build '+BUILD;$('buildData').textContent=BUILD;
+(function updCheck(){if(!/^https?:/.test(location.protocol)||!window.fetch)return;fetch(location.href.split('#')[0].split('?')[0]+'?v='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/const BUILD='([^']+)'/);if(m&&m[1]!==BUILD){const d=document.createElement('div');d.id='updbar';d.innerHTML='<span style="flex:1">New version available ('+m[1].replace(/[<>&]/g,'')+')</span><button type="button">Update</button>';d.querySelector('button').onclick=()=>{location.replace(location.href.split('#')[0].split('?')[0]+'?v='+Date.now())};document.body.appendChild(d)}}).catch(()=>{})})();
 (function init(){let g={};try{g=JSON.parse(localStorage.getItem(GKEY)||'{}')}catch(e){}
   $('f_opp').value=g.opp||'';$('f_game').value=g.game||'';$('f_date').value=g.date||'';$('f_week').value=g.week||'';setMode(mode);updGame()})();
 // keep our tab bar clear of any host-injected floating badge (e.g. ship.page pill); badge stays visible
