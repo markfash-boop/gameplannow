@@ -109,7 +109,7 @@ body.hasbadge{--safe:calc(env(safe-area-inset-bottom,0px) + 62px)}
 body.mode-D .om{display:none!important}body.mode-O .dm{display:none!important}
 .more{margin-top:12px}.more>summary{list-style:none;display:flex;align-items:center;justify-content:center;min-height:44px}.more>summary::-webkit-details-marker{display:none}
 .top h1,.wm{text-transform:none!important}.wm .now{color:var(--b)}
-.modebar{position:sticky;top:0;z-index:20;background:#fff;padding:6px 8px 0;box-shadow:0 2px 4px #0002}
+.modebar{position:sticky;top:0;z-index:20;background:#fff;padding:calc(env(safe-area-inset-top,0px) + 6px) 8px 0;box-shadow:0 2px 4px #0002}
 .modebar .modesw{margin:0;border:3px solid #0b2e19;border-radius:14px;overflow:hidden;display:flex}
 .modebar .modesw button{flex:1;min-height:58px;border:0;background:#fff;color:#0b2e19;font-family:var(--hd);font-size:22px;letter-spacing:.06em;line-height:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;touch-action:manipulation}
 .modebar .modesw button small{font-family:-apple-system,Arial,sans-serif;font-size:11px;letter-spacing:.04em;text-transform:uppercase;font-weight:700;opacity:.75}
@@ -120,20 +120,21 @@ body.mode-D .om{display:none!important}body.mode-O .dm{display:none!important}
 .modeband{margin:6px -8px 0;padding:6px 10px;font-weight:800;font-size:14px;text-align:center;letter-spacing:.03em;color:#fff;background:var(--b)}
 body.mode-D .modeband{background:#8b1e2d}body.mode-D .sitcard{border-color:#8b1e2d}
 .build{position:absolute;right:8px;top:4px;font-size:10px;color:#69746f}
-#errbar{position:fixed;left:8px;right:8px;top:8px;z-index:99999;background:#b00020;color:#fff;border-radius:10px;padding:8px 8px 8px 12px;display:flex;gap:6px;align-items:center;font-size:14px;box-shadow:0 4px 12px #0006}
+#errbar{position:fixed;left:8px;right:8px;bottom:calc(var(--tab) + var(--safe) + 84px);z-index:99999;background:#b00020;color:#fff;border-radius:10px;padding:8px 8px 8px 12px;display:flex;gap:6px;align-items:center;font-size:14px;box-shadow:0 4px 12px #0006}
 #errbar span{flex:1}#errbar button{min-height:44px;min-width:44px;border:1px solid #fff;background:transparent;color:#fff;border-radius:8px;font-weight:700}
-#updbar{position:fixed;left:8px;right:8px;top:8px;z-index:99998;background:#0b2e19;color:#fff;border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:8px}
+#updbar{position:fixed;left:8px;right:8px;bottom:calc(var(--tab) + var(--safe) + 84px);z-index:99998;background:#0b2e19;color:#fff;border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:8px}
 #updbar button{min-height:44px;background:var(--gold);border:0;border-radius:8px;font-weight:800;padding:0 14px}
 .modetag{display:inline-block;background:var(--gold);color:#111;font-weight:800;font-size:11px;padding:2px 6px;border-radius:4px;letter-spacing:.04em}
 @media print{body,.card{background:#fff!important;color:#000!important}th{background:#e7f1ea!important}.card{border:0}.rtitle{font-size:22px}}
 </style></head><body>
 <div id="nojs" style="background:#c62828;color:#fff;padding:14px;font-size:17px;font-weight:700;text-align:center;line-height:1.35">⚠ The app isn't running. This looks like a preview (Files / Mail / Quick Look) where scripts are off.<br>Tap Share → <u>Open in Safari</u> (or Chrome), or host the file online, then “Add to Home Screen”.</div>
-<div class="top"><div class="build" id="buildTag"></div><div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0f3d22"/><g stroke="#ffffff30" stroke-width="2"><line x1="0" y1="16" x2="64" y2="16"/><line x1="0" y1="32" x2="64" y2="32"/><line x1="0" y1="48" x2="64" y2="48"/></g><ellipse cx="32" cy="36" rx="20" ry="12" transform="rotate(-30 32 36)" fill="#8b4a22" stroke="#fff" stroke-width="1.5"/><g stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="25" y1="40" x2="39" y2="32"/><line x1="29" y1="35" x2="31" y2="39"/><line x1="32" y1="33" x2="34" y2="37"/><line x1="35" y1="31.5" x2="37" y2="35.5"/></g><g stroke="#ffc72c" stroke-width="3" stroke-linecap="round" fill="none"><path d="M8 8l8 8M16 8l-8 8"/><circle cx="52" cy="54" r="5"/><path d="M14 22 Q30 6 50 12"/><path d="M45 7l5 5-6 3"/></g></svg><div><h1>GamePlan<span>Now</span></h1><div class="tag">Break down their offense. Own Friday night.</div></div></div></div>
-
 <div class="modebar" id="modebar"><div class="modesw" role="tablist" aria-label="Choose what to scout">
  <button type="button" data-mode="O" role="tab"><small>Scout their</small>OFFENSE</button>
  <button type="button" data-mode="D" role="tab"><small>Scout their</small>DEFENSE</button></div>
  <div class="modeband" id="modeband"></div></div>
+<div class="top"><div class="build" id="buildTag"></div><div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0f3d22"/><g stroke="#ffffff30" stroke-width="2"><line x1="0" y1="16" x2="64" y2="16"/><line x1="0" y1="32" x2="64" y2="32"/><line x1="0" y1="48" x2="64" y2="48"/></g><ellipse cx="32" cy="36" rx="20" ry="12" transform="rotate(-30 32 36)" fill="#8b4a22" stroke="#fff" stroke-width="1.5"/><g stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="25" y1="40" x2="39" y2="32"/><line x1="29" y1="35" x2="31" y2="39"/><line x1="32" y1="33" x2="34" y2="37"/><line x1="35" y1="31.5" x2="37" y2="35.5"/></g><g stroke="#ffc72c" stroke-width="3" stroke-linecap="round" fill="none"><path d="M8 8l8 8M16 8l-8 8"/><circle cx="52" cy="54" r="5"/><path d="M14 22 Q30 6 50 12"/><path d="M45 7l5 5-6 3"/></g></svg><div><h1>GamePlan<span>Now</span></h1><div class="tag">Break down their offense. Own Friday night.</div></div></div></div>
+
+
 <section id="tag" class="on">
 <details class="card game" id="gameCard"><summary><div><div class="gname" id="gOpp">Set opponent</div><div class="gsub" id="gSub">Tap to set game</div></div><span class="btn">Game ✎</span></summary>
  <label>Opponent (team being scouted)</label><input id="f_opp" list="dl_opp" placeholder="St. Joseph's Montville">
@@ -177,7 +178,7 @@ body.mode-D .modeband{background:#8b1e2d}body.mode-D .sitcard{border-color:#8b1e
  <span class="lbl">Blitz came from</span><div class="seg wrap" data-f="bside" data-v="Field,Bndry,Middle,L,R" data-opt="1"></div>
  <span class="lbl">Who blitzed?</span><div class="chips" data-chip="btype" data-name="blitzer"></div>
  <span class="lbl">D-line movement? <span class="opt">— slant = all step one way; stunt = linemen cross/loop</span></span><div class="seg" data-f="stk" data-v="None,Slant,Stunt" data-opt="1"></div>
- <span class="lbl">After our motion/shift, did they adjust?</span><div class="seg" data-f="madj" data-v="No motion,No change,Moved/rotated" data-opt="1"></div>
+ <span class="lbl">After motion/shift by the offense they faced, did they adjust?</span><div class="seg" data-f="madj" data-v="No motion,No change,Moved/rotated" data-opt="1"></div>
  <details class="more"><summary class="btn w">More detail (optional)</summary>
   <span class="lbl">Coverage call (if you can tell)</span><div class="chips" data-chip="cov" data-name="coverage"></div>
   <span class="lbl">Def personnel</span><div class="chips" data-chip="dpers" data-name="def personnel"></div>
@@ -191,7 +192,7 @@ body.mode-D .modeband{background:#8b1e2d}body.mode-D .sitcard{border-color:#8b1e
 </div>
 
 <div class="card">
- <h2 class="sec om">Their offense</h2><h2 class="sec dm">Our offense (what we showed)</h2>
+ <h2 class="sec om">Their offense</h2><h2 class="sec dm">Offense they faced (on film)</h2>
  <span class="lbl">Personnel</span><div class="chips" data-chip="pers"></div>
  <span class="lbl">Formation</span><div class="chips" data-chip="form"></div>
  <div class="om"><span class="lbl">QB alignment</span><div class="seg" data-f="qb" data-v="Shotgun,Under,Pistol" data-opt="1"></div>
@@ -201,7 +202,7 @@ body.mode-D .modeband{background:#8b1e2d}body.mode-D .sitcard{border-color:#8b1e
 </div>
 
 <div class="card">
- <h2 class="sec dm">Our play</h2>
+ <h2 class="sec dm">Offense's play (on film)</h2>
  <span class="lbl">Play type</span><div class="seg wrap" data-f="type" data-v="Run,Pass,RPO,Screen,Special"></div>
  <span class="lbl">Play</span><div class="chips" data-chip="play"></div>
  <div class="om"><span class="lbl" id="dirLbl">Gap / target</span><div class="chips" data-chip="dir"></div></div>
@@ -255,7 +256,7 @@ body.mode-D .modeband{background:#8b1e2d}body.mode-D .sitcard{border-color:#8b1e
 <datalist id="dl_opp"></datalist><datalist id="dl_game"></datalist>
 <script>
 "use strict";
-const BUILD='v11 · 2026-10-14';
+const BUILD='v11.1 · 2026-10-14';
 function nn(v){return v==null?'':v}
 function showErr(msg){try{let e=document.getElementById('errbar');if(!e){e=document.createElement('div');e.id='errbar';document.body.appendChild(e)}
   e.innerHTML='<span>⚠ '+String(msg).replace(/[<>&]/g,'')+'</span><button type="button" onclick="location.reload()">Reload</button><button type="button" onclick="this.parentNode.remove()">✕</button>';}catch(_){}}
@@ -512,7 +513,7 @@ function computeReports(){
 function manZone(p){if(p.mz==='Man'||p.mz==='Zone')return p.mz;const c=String(p.cov||'').toUpperCase();if(!c)return '';return /COVER 0|COVER 1|2-MAN|MAN/.test(c)?'Man':'Zone'}
 function computeDefReports(){const arr=filtered(),out={},R=[];
   const gl=F.games.length?F.games:uniq('game',mp().filter(p=>!F.opp||p.opp===F.opp));
-  const title=`Opponent: ${F.opp||'All opponents'} | Game(s): ${F.games.length?gl.join(', '):'All ('+gl.length+')'}${F.qtr?' — Q'+F.qtr:''}${F.hash?' — Hash '+F.hash:''}${F.pers?' — Our pers '+F.pers:''}`;
+  const title=`Opponent: ${F.opp||'All opponents'} | Game(s): ${F.games.length?gl.join(', '):'All ('+gl.length+')'}${F.qtr?' — Q'+F.qtr:''}${F.hash?' — Hash '+F.hash:''}${F.pers?' — Offense pers '+F.pers:''}`;
   R.push(`<div class="card"><h2 class="rtitle"><span class="wm">GamePlan<span class="now">Now</span></span> Scouting Report</h2><div class="small"><span class="modetag">DEFENSE</span> Opponent defense tendencies</div><div style="font-size:15px;font-weight:600">${esc(title)}</div><div class="small">${arr.length} snaps. Printed ${new Date().toLocaleDateString()}${arr.some(p=>p.example)?' · <span class=ex>INCLUDES EXAMPLE DATA</span>':''}</div></div>`);
   if(!arr.length){R.push('<div class="card">No plays match. Tag plays or load sample data.</div>');return {html:R.join(''),out}}
   const has=(a,k)=>a.filter(p=>p[k]);
@@ -522,14 +523,14 @@ function computeDefReports(){const arr=filtered(),out={},R=[];
   const H=['Situation','Snaps','Top fronts','Top coverages','Blitz %','Blitz types / side'];
   const row=(k,a)=>{const bl=a.filter(p=>p.blitz==='Yes');return [esc(k),a.length,top(a,'front',2),top(a,'cov',3),bz(a).txt,bl.length?top(bl,'btype',2)+(has(bl,'bside').length?'<br><i>'+top(bl,'bside',2)+'</i>':''):'–']};
   const tblM=(m,first='Situation')=>tbl([first,...H.slice(1)],[...m].filter(x=>x[1].length).map(([k,a])=>row(k,a)),99);
-  const freq=(k,lbl)=>{const b=has(arr,k);return b.length?`<h3>${lbl}</h3>`+tbl([lbl,'Snaps','%','Our avg yds'],[...group(b,p=>p[k])].sort((x,y)=>y[1].length-x[1].length).map(([v,g])=>[esc(v),g.length,pct(g.length,b.length),avg(g.reduce((t,p)=>t+(+p.yds||0),0),g.length)])):''};
+  const freq=(k,lbl)=>{const b=has(arr,k);return b.length?`<h3>${lbl}</h3>`+tbl([lbl,'Snaps','%','Offense avg yds'],[...group(b,p=>p[k])].sort((x,y)=>y[1].length-x[1].length).map(([v,g])=>[esc(v),g.length,pct(g.length,b.length),avg(g.reduce((t,p)=>t+(+p.yds||0),0),g.length)])):''};
   const ab=bz(arr);out.blitz=ab;out.n=arr.length;
   R.push(rep('Summary',`<p><b>Blitz rate:</b> ${ab.txt}</p>`+freq('front','Front')+freq('cov','Coverage')+freq('shell','Shell (pre-snap)')+freq('dpers','Def personnel')+freq('btype','Blitz type')+freq('stunt','Stunt / slant')+freq('ctech','Corner technique')+freq('rot','Safety rotation')+freq('ovh','Overhang vs slot')+freq('fstr','Front strength')+freq('dlnote','DL alignment')));
   R.push(rep('By Down & Distance',tblM(new Map(DD.map(d=>[d,arr.filter(p=>ddBucket(p.down,p.dist)===d)])),'D&D')));
   R.push(rep('By Field Zone (incl. Red Zone / Goal Line)',tblM(new Map(ZONES.map(z=>[z,arr.filter(p=>zone(p.yl)===z)])),'Zone')));
   const fm=new Map([...group(arr,p=>p.form)].sort((a,b)=>b[1].length-a[1].length));
-  R.push(rep('By Formation We Showed',tblM(new Map([...fm].map(([k,a])=>['vs '+k,a])),'Our formation')));
-  R.push(rep('By Personnel We Showed',tblM(group(arr,p=>p.pers),'Our pers')));
+  R.push(rep('How They Defended Each Formation They Faced',tblM(new Map([...fm].map(([k,a])=>['vs '+k,a])),'Formation faced')));
+  R.push(rep('vs Offensive Personnel They Faced',tblM(group(arr,p=>p.pers),'Personnel faced')));
   R.push(rep('By Hash / Field Side',tblM(new Map(['L','M','R'].map(h=>[h+' hash',arr.filter(p=>p.hash===h)])),'Hash')+'<p class="small">Blitz side Field/Bndry is as tagged; on L hash the field is to the R.</p>'));
   const third=arr.filter(p=>p.down==='3');
   R.push(rep('3rd Down Blitz Tendencies',third.length?tblM(new Map(DD.filter(d=>d.startsWith('3rd')).map(d=>[d,third.filter(p=>ddBucket(p.down,p.dist)===d)])),'3rd down'):'<p class="small">No 3rd-down snaps.</p>'));
@@ -538,7 +539,7 @@ function computeDefReports(){const arr=filtered(),out={},R=[];
   R.push(rep('By Situation Tag',tagM.size?tblM(tagM,'Tag'):'<p class="small">No situation tags.</p>'));
   const sh=has(arr,'shell');const covs=uniq('cov',sh);
   R.push(rep('Rotation Tells (pre-snap shell → post-snap coverage)',sh.length?tbl(['Shell','Snaps',...covs.map(esc),'Rotated'],[...group(sh,p=>p.shell)].map(([k,a])=>[esc(k),a.length,...covs.map(c=>{const n=a.filter(p=>p.cov===c).length;return n?`${pct(n,a.length)} (${n})`:''}),pct(a.filter(p=>p.rot&&p.rot!=='None').length,a.length)]),99):'<p class="small">No shell tagged.</p>'));
-  R.push(rep('Coverage / Front vs Our Play Type',tblM(group(arr,p=>p.type==='Run'?'vs our RUN':p.type==='Special'?'':'vs our PASS'),'Our play')));
+  R.push(rep('Coverage / Front vs Run vs Pass (offense they faced)',tblM(group(arr,p=>p.type==='Run'?'vs RUN':p.type==='Special'?'':'vs PASS'),'Play type faced')));
   const notes=[];const chk=(label,a)=>{if(a.length<5)return;const b=bz(a);
     if(b.n>=5&&b.r>=.6){const bl=a.filter(p=>p.blitz==='Yes');const t=topOne(bl,'btype'),sd=topOne(bl,'bside');notes.push([b.r+.05,`${label}: blitz ${pct(b.y,b.n)} (${b.y}/${b.n})${t?`, ${t.v} ${pct(t.n,t.of)}`:''}${sd&&sd.r>=.6?` from ${sd.v==='Bndry'?'boundary':sd.v==='Field'?'field':sd.v}`:''}`])}
     const c=topOne(a,'cov');if(c&&c.of>=5&&c.r>=.6)notes.push([c.r,`${label}: ${c.v} ${pct(c.n,c.of)} (${c.n}/${c.of})`]);
@@ -558,17 +559,17 @@ function computeDefReports(){const arr=filtered(),out={},R=[];
    const man=share(arr,mzOf,'Man'),zn=share(arr,mzOf,'Zone'),s1=share(arr,p=>p.shell,'1-High'),s2=share(arr,p=>p.shell,'2-High'),s0=share(arr,p=>p.shell,'0-High'),stn=share(arr,stOf,'Yes');
    const B=[['Overall',bz(arr)],['3rd down',bz(thirdA)],['3rd & 7+',bz(third7)],['Red zone / goal line',bz(rz)]];
    const look=a=>a.length?`${top(a,'front',1)} · ${(()=>{const s=topOne(a,'shell');return s?s.v.replace('-High',' safety')+' '+pct(s.n,s.of):'–'})()} · ${(()=>{const m=share(a,mzOf,'Man');return m.of?'Man '+pct(m.n,m.of):'–'})()} · blitz ${bz(a).txt}`:'<span class="small">no snaps tagged</span>';
-   const vsRows=[['vs TRIPS',arr.filter(p=>/TRIPS|TREY/.test(p.form||''))],['vs EMPTY',arr.filter(p=>/EMPTY/.test(p.form||'')||p.rb==='Empty')],['vs 2x2 (DOUBLES/DEUCE)',arr.filter(p=>/DOUBLES|DEUCE/.test(p.form||''))],['vs motion',arr.filter(p=>p.motion)],['vs TE / 12+ pers',arr.filter(p=>/^(12|13|21|22|23)$/.test(p.pers||''))]];
+   const vsRows=[['How they defended TRIPS',arr.filter(p=>/TRIPS|TREY/.test(p.form||''))],['How they defended EMPTY',arr.filter(p=>/EMPTY/.test(p.form||'')||p.rb==='Empty')],['How they defended 2x2 (DOUBLES/DEUCE)',arr.filter(p=>/DOUBLES|DEUCE/.test(p.form||''))],['How they defended motion',arr.filter(p=>p.motion)],['How they defended TE / 12+ pers',arr.filter(p=>/^(12|13|21|22|23)$/.test(p.pers||''))]];
    const ddRows=DD.map(d=>{const a=arr.filter(p=>ddBucket(p.down,p.dist)===d);return a.length?[d,a.length,top(a,'front',1),(()=>{const s=topOne(a,'shell');return s?esc(s.v)+' '+pct(s.n,s.of):'–'})(),(()=>{const m=share(a,mzOf,'Man');return m.of?pct(m.n,m.of)+' man':'–'})(),bz(a).txt]:null}).filter(Boolean);
    // cautious attack ideas
    const ideas=[];const N=8,need=(o)=>o.of>=N;
-   if(need(man)&&man.r>=.6)ideas.push(`Played man on ${man.txt} of tagged snaps. Worth considering man-beaters (crossers/rubs, motion to confirm man, isolating your best receiver).`);
-   if(need(zn)&&zn.r>=.6)ideas.push(`Played zone on ${zn.txt} of tagged snaps. Worth considering zone-beaters (flood / high-low reads, sitting in windows, quick game).`);
-   if(need(s1)&&s1.r>=.6)ideas.push(`Showed 1 deep safety on ${s1.txt}. Often means an extra defender near the box — consider seams/verticals and play-action.`);
-   if(need(s2)&&s2.r>=.6)ideas.push(`Showed 2 deep safeties on ${s2.txt}. Often a lighter box — consider the run game and attacking the middle between the safeties.`);
-   const bo=bz(arr);if(bo.n>=N&&bo.r>=.4)ideas.push(`Brought extra rushers on ${bo.txt} overall. Have protection/hot answers, screens and quick throws ready.`);
+   if(need(man)&&man.r>=.6)ideas.push(`On film they played man on ${man.txt} of tagged snaps. If they do the same vs similar looks, worth considering man-beaters (crossers/rubs, motion to confirm man, isolating your best receiver).`);
+   if(need(zn)&&zn.r>=.6)ideas.push(`On film they played zone on ${zn.txt} of tagged snaps. If they do the same vs similar looks, worth considering zone-beaters (flood / high-low reads, sitting in windows, quick game).`);
+   if(need(s1)&&s1.r>=.6)ideas.push(`On film they showed 1 deep safety on ${s1.txt}. Often means an extra defender near the box — consider seams/verticals and play-action.`);
+   if(need(s2)&&s2.r>=.6)ideas.push(`On film they showed 2 deep safeties on ${s2.txt}. Often a lighter box — consider the run game and attacking the middle between the safeties.`);
+   const bo=bz(arr);if(bo.n>=N&&bo.r>=.4)ideas.push(`On film they brought extra rushers on ${bo.txt} overall. Have protection/hot answers, screens and quick throws ready.`);
    const b3=bz(thirdA);if(b3.n>=5&&b3.r>=.5){const bl=thirdA.filter(p=>p.blitz==='Yes'),w=topOne(bl,'btype'),sd=topOne(bl,'bside');ideas.push(`3rd down: pressure on ${b3.txt}${w?`, most often ${w.v}`:''}${sd?` from ${sd.v==='Bndry'?'the boundary':sd.v==='Field'?'the field':sd.v}`:''}. Plan protection and a screen/draw.`)}
-   if(need(stn)&&stn.r>=.4)ideas.push(`D-line slanted/stunted on ${stn.txt}. Consider counters/traps, double teams and screens that use their movement.`);
+   if(need(stn)&&stn.r>=.4)ideas.push(`On film their D-line slanted/stunted on ${stn.txt}. Consider counters/traps, double teams and screens that use their movement.`);
    for(const [lbl,a] of vsRows){if(a.length<5)continue;const m=share(a,mzOf,'Man'),b=bz(a);if(m.of>=5&&(m.r>=.7||m.r<=.3))ideas.push(`${lbl}: ${m.r>=.7?'man':'zone'} on ${m.r>=.7?m.txt:share(a,mzOf,'Zone').txt}.`);if(b.n>=5&&b.r>=.5)ideas.push(`${lbl}: pressure on ${b.txt}.`)}
    const sheet=`<p class="small">Snaps charted: <b>${arr.length}</b>. Percentages use only snaps where that item was tagged.</p>
    <table><tr><th>Base front(s)</th><td>${top(arr,'front',3)}</td></tr>
@@ -578,7 +579,7 @@ function computeDefReports(){const arr=filtered(),out={},R=[];
    <tr><th>Slant / stunt</th><td>${stn.txt}</td></tr>
    <tr><th>Top coverage calls</th><td>${top(arr,'cov',3)}</td></tr></table>
    <h3>By down & distance</h3>${ddRows.length?tbl(['D&D','Snaps','Front','Safeties','Man %','Blitz'],ddRows,99):'<p class="small">–</p>'}
-   <h3>How they line up vs our looks</h3>${tbl(['Our look','Snaps','Front · safeties · man · blitz'],vsRows.map(([l,a])=>[l,a.length,look(a)]),99)}
+   <h3>How they defended TRIPS / empty / 2x2 / motion / TE (looks they faced)</h3>${tbl(['Look faced','Snaps','Front · safeties · man · blitz'],vsRows.map(([l,a])=>[l,a.length,look(a)]),99)}
    <h3>Attack ideas <span class="small">(tendencies from your tags — verify on film; not guarantees)</span></h3>${ideas.length?'<ul class="notes">'+ideas.map(i=>'<li>'+esc(i)+'</li>').join('')+'</ul>':'<p class="small">Not enough tagged snaps yet (ideas need ~8+ tagged snaps per item).</p>'}`;
    out.sheet={man:man.r,zone:zn.r,s1:s1.r,s2:s2.r,blitz:bo.r,stunt:stn.r,ideas};
    R.splice(1,0,`<details class="card rep" open><summary><h2>OC Game Plan Sheet</h2></summary><div class="tblwrap">${sheet}</div></details>`)}
